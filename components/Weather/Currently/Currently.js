@@ -17,19 +17,19 @@ const currently = props => {
         <div className="col-7">
           <div className={styles.now}>
             <WeatherIcon condition={props.currently.weather[0].icon} color="white" />
-            <div className={styles.summary}>{props.currently.summary}</div>
+            <div className={styles.summary}>{props.currently.weather[0].main}</div>
             <div className={styles.location}>
               {props.city && props.city}
               {props.city !== "" && props.region !== "" ? "," : ""} {props.region}
             </div>
             <div className={styles.temp}>
-              {props.currently.temperature && Math.round(props.currently.temperature)}{" "}
+              {(((props.currently.temp - 273.15)*1.8)+32) && Math.round((((props.currently.temp - 273.15)*1.8)+32))}{"°F"}
              {/*  <Units flags={props.flags} /> */}
             </div>
             {props.daily && (
               <div className={styles["temp-lh"]}>
-                {Math.round(props.daily[0].temp.max)} °{" "}
-                <span>{Math.round(props.daily[0].temp.min)} °</span>
+                {Math.round((((props.daily[0].temp.max - 273.15)*1.8)+32))} °{" "}
+                <span>{Math.round((((props.daily[0].temp.min - 273.15)*1.8)+32))} °</span>
               </div>
             )}
           </div>
@@ -76,8 +76,8 @@ const currently = props => {
                   <div className="media-body">
                     Wind Speed
                     <h5>
-                      {getDirection(props.currently.windBearing)}{" "}
-                      {Math.round(props.currently.windSpeed)} MPH
+                      {getDirection(props.currently.wind_deg)}{" "}
+                      {Math.round(props.currently.wind_speed)} MPH
                     </h5>
                   </div>
                 </li>
@@ -89,7 +89,7 @@ const currently = props => {
                   </div>
                   <div className="media-body">
                     UV Index
-                    <h5>{props.currently.uvIndex}</h5>
+                    <h5>{props.currently.uvi}</h5>
                   </div>
                 </li>
                 <li className="media">
