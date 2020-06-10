@@ -12,6 +12,10 @@ const weatherBackground = props => {
       divStyle = {
         backgroundImage: `url('/weatherBackgrounds/partly-cloudy-day.jpg')`
       }; 
+    }else if ( props.condition === "10n" || rops.condition === "10d"){
+      divStyle = {
+        backgroundImage: `url('/weatherBackgrounds/rain.jpg')`
+      }; 
     }else{
       divStyle = {
         backgroundImage: `url('/weatherBackgrounds/${props.condition}.jpg')`
