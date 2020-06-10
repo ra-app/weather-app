@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import device from '../responsive/Device';
+import device from '../Responsive/Device';
 
 const SmallLabel = styled.h4`
   color: ${({ color }) => color || '#FFFFFF'};

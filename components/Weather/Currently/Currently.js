@@ -91,6 +91,10 @@ const currently = props => {
                 </button>
               </div>
               <Swiper {...params}>
+                {/* POWER DATA */}
+                   <div>
+                  <PowerData />
+                 </div>
                 {/* WEATHER INFO */}
                 <div className={styles.pullRight}>
                   <ul className={[["list-unstyled"], styles["stats"], styles["pullRight"]].join(" ")}>
@@ -225,10 +229,7 @@ const currently = props => {
                 </div>
                 {/* END WEATHER INFO */}
 
-                 {/* POWER DATA */}
-                 <div>
-                  <PowerData />
-                 </div>
+              
               </Swiper>
             </div>
           </div>

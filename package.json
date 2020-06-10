@@ -21,15 +21,10 @@
     "node": "13.9.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@babel/preset-env": "^7.10.2",
-    "bootstrap": "^4.5.0",
-=======
     "@babel/preset-env": "^7.9.0",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "convert-units": "^2.3.4",
->>>>>>> f5c7c68df4e8d054a5a8c628bbf46410abacf159
     "create-server": "^1.0.2",
     "date-fns": "^2.14.0",
     "dotenv": "^8.2.0",

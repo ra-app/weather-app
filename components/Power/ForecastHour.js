@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SmallLabel from './SmallLabel';
 import Text from './Text';
-import device from '../responsive/Device';
+import device from '../Responsive/Device';
 
 const ForecastWrapper = styled.div`
   flex-shrink: 0;

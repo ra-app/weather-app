@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 //   faSmog,
 // } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import device from '../responsive/Device';
+import device from '../Responsive/Device';
 // import ForecastHour from './ForecastHour';
 import BigLabel from './BigLabel';
 import MediumLabel from './MediumLabel';
@@ -41,7 +41,7 @@ const WeatherDetailsWrapper = styled.div`
   border-radius: 10px;
   align-self: flex-start;
   @media ${device.mobileL} {
-    flex-basis: 50%;
+    flex-basis: 100%;
   }
 `;
 
@@ -78,8 +78,8 @@ const Result = () => {
      .then((response) => response.json())
      .then((responseData) =>
      {  
-      powerData = responseData;
-        console.log(powerData, 'powerData!!!');
+      window.$powerData = responseData;
+      //console.log(powerData, 'powerData!!!');
      })
      .catch((error) => {
          console.error(error);
@@ -222,31 +222,32 @@ const Result = () => {
   }
 
   useEffect(() => {    
-    setDataChart();
-    // getPowerData()
-    // setInterval(()=> getPowerData(), 10000)
+    //setDataChart();
+    getPowerData()
+    setInterval(()=> getPowerData(), 500)
   });
 
   
-
+  console.log('HEREEE WTF ', window.$powerData)
   return (
     <Results>
-      {/* <WeatherDetailsWrapper>
+      { window.$powerData &&
+      <WeatherDetailsWrapper>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-           {convert(powerData.data.power_dc1 + powerData.data.power_dc2).from('W').to('kW').toFixed(3)} kW
+           {convert(window.$powerData.data.power_dc1 + window.$powerData.data.power_dc2).from('W').to('kW').toFixed(3)} kW
           </SmallLabel>
           <Text align="center">PV Power</Text>
         </WeatherDetail>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-          {convert(powerData.data.home_own_consumption_from_battery + powerData.data.home_own_consumption_from_grid + powerData.data.home_own_consumption_from_pv).from('W').to('kW').toFixed(3)} kW
+          {convert(window.$powerData.data.home_own_consumption_from_battery + window.$powerData.data.home_own_consumption_from_grid + window.$powerData.data.home_own_consumption_from_pv).from('W').to('kW').toFixed(3)} kW
           </SmallLabel>
           <Text align="center">Consumption</Text>
         </WeatherDetail>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-          {powerData.data.act_state_of_charge}%
+          {window.$powerData.data.act_state_of_charge}%
           </SmallLabel>
           <Text align="center">Battery</Text>
         </WeatherDetail>
@@ -268,8 +269,9 @@ const Result = () => {
           </SmallLabel>
           <Text align="center">Current year earnings</Text>
         </WeatherDetail>
-      </WeatherDetailsWrapper> */}
-      <MainChartsDiv>
+      </WeatherDetailsWrapper>
+}
+     {/*  <MainChartsDiv>
         <DivChart>
           <canvas id="daily" height="200" width="200" ></canvas>
         </DivChart>
@@ -285,7 +287,7 @@ const Result = () => {
         <DivChart>
           <canvas id="total" height="200" width="200"></canvas>
         </DivChart>
-      </MainChartsDiv>
+      </MainChartsDiv> */}
     </Results>
   );
 };
