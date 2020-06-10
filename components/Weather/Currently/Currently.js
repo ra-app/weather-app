@@ -23,7 +23,7 @@ const currently = props => {
               {props.city !== "" && props.region !== "" ? "," : ""} {props.region}
             </div>
             <div className={styles.temp}>
-              {props.currently.temp && Math.round((props.currently.temp))}{"°C"}
+              {props.currently.temp && Math.round((props.currently.temp))}{" °C"}
              {/*  <Units flags={props.flags} /> */}
             </div>
             {props.daily && (
