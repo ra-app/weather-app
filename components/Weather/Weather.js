@@ -21,8 +21,6 @@ const weather = props => {
         {spinner.spinner === true && <div className="loading-spinner"></div>}
         {weather && (
           <>
-
-            <PowerGraph />
             <WeatherBackground condition={weather.current.weather[0].icon} />
             <Currently
               city={city}
@@ -44,6 +42,7 @@ const weather = props => {
                 <HourlySlider weather={weather} />
               </TabPanel>
             </Tabs>
+            {/* <PowerGraph /> */}
           </>
         )}
       </div>
