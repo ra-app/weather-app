@@ -65,7 +65,7 @@ const dailySlider = props => {
                 {Math.round(item.temp.max)} °{" "}
                 <span>{Math.round(item.temp.min)} °</span>
               </div>
-              <span>{getCondition(item.icon)}</span>
+              <span>{getCondition(item.weather[0].icon)}</span>
             </div>
           )}
           children={handleClose => (
@@ -75,11 +75,11 @@ const dailySlider = props => {
                 <button className={styles["modal__top__close"]} onClick={handleClose}>
                   ×
                 </button>
-                {format(new Date(), "eeee Do") === format(fromUnixTime(item.time), "eeee Do") ? (
+                {format(new Date(), "eeee Do") === format(fromUnixTime(item.dt), "eeee Do") ? (
                   <h2 className={styles.date}>Today</h2>
                 ) : (
                   <h2 className={styles.date}>
-                    {format(fromUnixTime(item.time), "eeee, MMMM do")}
+                    {format(fromUnixTime(item.dt), "eeee, MMMM do")}
                   </h2>
                 )}
                 <div className="row">
@@ -134,7 +134,7 @@ const dailySlider = props => {
                   <TabList className="tab-group">
                     <Tab className="tab-item">Daily Summary</Tab>
                     {hourArray().map((dataTime, index) => {
-                      if (dataTime === format(fromUnixTime(item.time), "M/d/yyyy")) {
+                      if (dataTime === format(fromUnixTime(item.dt), "M/d/yyyy")) {
                         return (
                           <Tab key={index} className="tab-item">
                             By The Hour
@@ -172,9 +172,9 @@ const dailySlider = props => {
                         <span>
                           {
                             Moon.phase(
-                              parseInt(format(fromUnixTime(item.time), "yyyy")),
-                              parseInt(format(fromUnixTime(item.time), "M")),
-                              parseInt(format(fromUnixTime(item.time), "d"))
+                              parseInt(format(fromUnixTime(item.dt), "yyyy")),
+                              parseInt(format(fromUnixTime(item.dt), "M")),
+                              parseInt(format(fromUnixTime(item.dt), "d"))
                             ).name
                           }
                         </span>
@@ -215,7 +215,7 @@ const dailySlider = props => {
                   </TabPanel>
 
                   {hourArray().map((dataTime, index) => {
-                    if (dataTime === format(fromUnixTime(item.time), "M/d/yyyy")) {
+                    if (dataTime === format(fromUnixTime(item.dt), "M/d/yyyy")) {
                       return (
                         <TabPanel key={index}>
                           <div className="table-responsive-sm">
@@ -232,7 +232,7 @@ const dailySlider = props => {
                                 {checkHour.map((hour, index) => {
                                   if (
                                     format(fromUnixTime(hour.time), "MMMM do yyyy") ===
-                                    format(fromUnixTime(item.time), "MMMM do yyyy")
+                                    format(fromUnixTime(item.dt), "MMMM do yyyy")
                                   ) {
                                     return (
                                       <tr key={hour.time}>

@@ -1,6 +1,5 @@
 const weatherIcon = props => {
   let icon = null;
-  console.log('Weather icon', props.condition)
   switch (props.condition) {
     case "clear-day":
     case "01d":
