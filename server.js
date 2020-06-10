@@ -32,7 +32,7 @@ app
       var key = process.env.DARK_SKY_API_KEY;
       //?lat={lat}&lon={lon}&appid={YOUR API KEY}
       var settings = "&exclude=minutely";
-      var url = endpoint + "?lat=" + req.params.lat + "&lon=" + req.params.lng + settings + "&units=metric" + "&appid=" + key;
+      var url = endpoint + "?lat=" + req.params.lat + "&lon=" + req.params.lng + "&units=metric" + "&appid=" + key;
       console.log(">>>>>>>>>>>>>>>>>>>>" , url);
       req.pipe(request(url)).pipe(res);
     });

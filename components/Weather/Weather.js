@@ -42,7 +42,7 @@ const weather = props => {
                 <HourlySlider weather={weather} />
               </TabPanel>
             </Tabs>
-            {/* <PowerGraph /> */}
+            <PowerGraph />
           </>
         )}
       </div>

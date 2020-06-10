@@ -61,7 +61,7 @@ const index = () => {
 
   return (
     <>
-      <Layout title="Weather App">
+      <Layout title="SmartSolar">
         <Header />
         <Weather />
         <Footer />
