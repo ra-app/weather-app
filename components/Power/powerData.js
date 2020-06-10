@@ -79,7 +79,6 @@ const Result = () => {
      .then((responseData) =>
      {  
       setPowerData(responseData);
-      //console.log(powerData, 'powerData!!!');
      })
      .catch((error) => {
          console.error(error);
@@ -224,8 +223,8 @@ const Result = () => {
   useEffect(() => {    
     //setDataChart();
     getPowerData()
-    setInterval(()=> getPowerData(), 500);
-  });
+    setInterval(()=> getPowerData(), 5000);
+  }, []);
   return (
     <Results>
       { powerData &&
