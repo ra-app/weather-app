@@ -43,6 +43,7 @@ const dailySlider = props => {
     const backgroundCondition = {
       backgroundImage: `url(/weatherBackgrounds/${item.icon}.jpg)`
     };
+    console.log('ITEM', item)
     return (
       <div key={index} className={styles.slide}>
         <MicroModal
@@ -59,7 +60,7 @@ const dailySlider = props => {
               ) : (
                 <div className={styles.date}>{format(fromUnixTime(item.dt), "eee, MMM do")}</div>
               )}
-              <WeatherIcon condition={item.icon} color="white" />
+              <WeatherIcon condition={item.weather[0].icon} color="white" />
               <div className={styles.temp}>
                 {Math.round(item.temp.max)} °{" "}
                 <span>{Math.round(item.temp.min)} °</span>
