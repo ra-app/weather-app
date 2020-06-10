@@ -118,7 +118,7 @@ const currently = props => {
                           <ul>
                             <li>
                               <strong>Feels Like</strong>{" "}
-                              <span>{Math.round(props.currently.apparentTemperature)} °</span>
+                              <span>{Math.round(props.currently.feels_like)} °</span>
                             </li>
                             <li>
                               <strong>Dew Point</strong>{" "}

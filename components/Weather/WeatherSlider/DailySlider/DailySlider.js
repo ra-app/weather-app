@@ -155,8 +155,8 @@ const dailySlider = props => {
                       <li>
                         <strong>Feels Like</strong>{" "}
                         <span>
-                          Min {Math.round(item.apparentTemperatureMin)} ° / Max{" "}
-                          {Math.round(item.apparentTemperatureMax)} °
+                          Min {Math.round(item.feels_like.night)} ° / Max{" "}
+                          {Math.round(item.feels_like.day)} °
                         </span>
                       </li>
                       <li>
