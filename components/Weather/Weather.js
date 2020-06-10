@@ -5,6 +5,7 @@ import Currently from "./Currently/Currently";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import DailySlider from "../Weather/WeatherSlider/DailySlider/DailySlider";
 import HourlySlider from "../Weather/WeatherSlider/HourlySlider/HourlySlider";
+import PowerGraph from "../Power/powerGraph";
 import { resetIdCounter } from "react-tabs";
 
 const weather = props => {
@@ -20,6 +21,8 @@ const weather = props => {
         {spinner.spinner === true && <div className="loading-spinner"></div>}
         {weather && (
           <>
+
+            <PowerGraph />
             <WeatherBackground condition={weather.current.weather[0].icon} />
             <Currently
               city={city}
