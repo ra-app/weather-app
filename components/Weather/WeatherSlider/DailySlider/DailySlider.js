@@ -61,8 +61,8 @@ const dailySlider = props => {
               )}
               <WeatherIcon condition={item.icon} color="white" />
               <div className={styles.temp}>
-                {Math.round(item.temperatureHigh)} °{" "}
-                <span>{Math.round(item.temperatureLow)} °</span>
+                {Math.round((((item.temp.max - 273.15)*1.8)+32))} °{" "}
+                <span>{Math.round((((item.temp.max - 273.15)*1.8)+32))} °</span>
               </div>
               <span>{getCondition(item.icon)}</span>
             </div>
@@ -192,7 +192,7 @@ const dailySlider = props => {
                       )}
                       <li>
                         <strong>Cloud Cover</strong>{" "}
-                        <span>{formatAsPercentage(item.cloudCover)}</span>
+                        <span>{formatAsPercentage(item.clouds)}</span>
                       </li>
                       <li>
                         <strong>UV Index</strong>{" "}

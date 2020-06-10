@@ -129,7 +129,7 @@ const currently = props => {
                             </li>
                             <li>
                               <strong>Cloud Cover</strong>{" "}
-                              <span>{formatAsPercentage(props.currently.cloudCover)}</span>
+                              <span>{formatAsPercentage(props.currently.clouds)}</span>
                             </li>
                             <li>
                               <strong>Air Pressure</strong>{" "}

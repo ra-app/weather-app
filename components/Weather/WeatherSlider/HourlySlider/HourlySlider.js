@@ -148,7 +148,7 @@ const hourlySlider = props => {
                     </li>
                   )}
                   <li>
-                    <strong>Cloud Cover</strong> <span>{formatAsPercentage(item.cloudCover)}</span>
+                    <strong>Cloud Cover</strong> <span>{formatAsPercentage(item.clouds)}</span>
                   </li>
                   <li>
                     <strong>Air Pressure</strong> <span>{calculatePressure(item.pressure)} in</span>
