@@ -11,6 +11,7 @@ const weatherIcon = props => {
       icon = <img src={`/weather/icons/${props.color}/svg/nt_clear.svg`} alt={props.condition} />;
       break;
     case "rain":
+    case "10d":
       icon = <img src={`/weather/icons/${props.color}/svg/rain.svg`} alt={props.condition} />;
       break;
     case "snow":
