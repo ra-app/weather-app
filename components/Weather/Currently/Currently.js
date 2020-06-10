@@ -64,7 +64,7 @@ const currently = props => {
                   </div>
                   <div className="media-body">
                     Precipitation
-                    <h5>{formatAsPercentage(props.currently.precipProbability)}</h5>
+                    <h5>{formatAsPercentage(props.currently.rain)}</h5>
                   </div>
                 </li>
                 <li className="media">
