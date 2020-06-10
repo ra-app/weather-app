@@ -3,7 +3,7 @@ const next = require("next");
 require("dotenv").config();
 
 const dev = process.env.NODE_ENV !== "production";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const request = require("request");
@@ -32,7 +32,7 @@ app
       var key = process.env.DARK_SKY_API_KEY;
       //?lat={lat}&lon={lon}&appid={YOUR API KEY}
       var settings = "?extend=hourly&exclude=minutely";
-      var url = endpoint + "?lat=" + req.params.lat + "&lon=" + req.params.lng + "&appid" + key;
+      var url = endpoint + "?lat=" + req.params.lat + "&lon=" + req.params.lng + "&appid=" + key;
       console.log(">>>>>>>>>>>>>>>>>>>>" , url);
       req.pipe(request(url)).pipe(res);
     });
