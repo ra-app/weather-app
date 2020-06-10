@@ -7,7 +7,6 @@ export function getDirection(angle) {
 }
 
 export function getCondition(condition) {
-  console.log('Condition', condition)
   switch (condition) {
     case "clear-day":
       return "Clear";
