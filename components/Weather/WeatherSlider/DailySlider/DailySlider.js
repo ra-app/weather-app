@@ -31,7 +31,7 @@ const dailySlider = props => {
 
   let checkHour = props.weather.hourly.data;
   const hourArray = () => {
-    let newArray = checkHour.map(object => format(fromUnixTime(object.time), "M/d/yyyy"));
+    let newArray = checkHour.map(object => format(fromUnixTime(object.dt), "M/d/yyyy"));
     let oneDay = [...new Set(newArray)];
     return oneDay;
   };
