@@ -4,10 +4,7 @@ const footer = props => {
   return (
     <footer className={styles["footer"]}>
       <div className="container-fluid">
-        Weather App by <a href="https://tinyminute.com/">Tiny Minute</a>
-        <br />
-        View Source on <a href="https://github.com/Powza/weather-app"> GitHub</a> - Powered by{" "}
-        <a href="https://darksky.net/poweredby/">Dark Sky</a>
+        SmartSolar App by <a href="https://devcups.com/">Saber Maram</a>
       </div>
     </footer>
   );
