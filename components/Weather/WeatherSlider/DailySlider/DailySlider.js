@@ -39,12 +39,12 @@ const dailySlider = props => {
   let slider = null;
   let sliderInitialize = null;
 
-  sliderInitialize = props.weather.daily.data.slice(0, 8).map((item, index) => {
+  sliderInitialize = props.weather.daily.slice(0, 8).map((item, index) => {
     const backgroundCondition = {
       backgroundImage: `url(/weatherBackgrounds/${item.icon}.jpg)`
     };
     return (
-      <div key={item.time} className={styles.slide}>
+      <div key={index} className={styles.slide}>
         <MicroModal
           modalClassName={styles.modal}
           disableFirstElementFocus={true}
@@ -54,10 +54,10 @@ const dailySlider = props => {
               onClick={handleOpen}
               target="_blank"
               className={[styles.slide, styles["slide-modal-btn"]].join(" ")}>
-              {format(new Date(), "eeee Do") === format(fromUnixTime(item.time), "eeee Do") ? (
+              {format(new Date(), "eeee Do") === format(fromUnixTime(item.dt), "eeee Do") ? (
                 <div className={styles.date}>Today</div>
               ) : (
-                <div className={styles.date}>{format(fromUnixTime(item.time), "eee, MMM do")}</div>
+                <div className={styles.date}>{format(fromUnixTime(item.dt), "eee, MMM do")}</div>
               )}
               <WeatherIcon condition={item.icon} color="white" />
               <div className={styles.temp}>

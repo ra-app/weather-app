@@ -16,7 +16,7 @@ const currently = props => {
       <div className="row justify-content-between">
         <div className="col-7">
           <div className={styles.now}>
-            <WeatherIcon condition={props.currently.icon} color="white" />
+            <WeatherIcon condition={props.currently.weather[0].icon} color="white" />
             <div className={styles.summary}>{props.currently.summary}</div>
             <div className={styles.location}>
               {props.city && props.city}
@@ -24,12 +24,12 @@ const currently = props => {
             </div>
             <div className={styles.temp}>
               {props.currently.temperature && Math.round(props.currently.temperature)}{" "}
-              <Units flags={props.flags} />
+             {/*  <Units flags={props.flags} /> */}
             </div>
             {props.daily && (
               <div className={styles["temp-lh"]}>
-                {Math.round(props.daily.data[0].temperatureHigh)} °{" "}
-                <span>{Math.round(props.daily.data[0].temperatureLow)} °</span>
+                {Math.round(props.daily[0].temp.max)} °{" "}
+                <span>{Math.round(props.daily[0].temp.min)} °</span>
               </div>
             )}
           </div>

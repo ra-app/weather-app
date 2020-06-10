@@ -13,19 +13,19 @@ const weather = props => {
   const city = useStoreState(state => state.location.locationCity);
   const region = useStoreState(state => state.location.locationRegion);
   resetIdCounter();
-
+  console.log('HERE!! WEATHER', weather)
   return (
     <div className={styles.weather}>
       <div className={styles["weather-wrap"]}>
         {spinner.spinner === true && <div className="loading-spinner"></div>}
         {weather && (
           <>
-            <WeatherBackground condition={weather.currently.icon} />
+            <WeatherBackground condition={weather.current.weather[0].icon} />
             <Currently
               city={city}
               region={region}
               daily={weather.daily}
-              currently={weather.currently}
+              currently={weather.current}
               alerts={weather.alerts}
               flags={weather.flags}
             />

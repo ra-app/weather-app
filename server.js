@@ -28,10 +28,12 @@ app
     server.use("/api/darkSky/", apiLimiter);
 
     server.get("/api/darkSky/:lat,:lng", (req, res) => {
-      var endpoint = "https://api.darksky.net/forecast/";
+      var endpoint = "https://api.openweathermap.org/data/2.5/onecall";
       var key = process.env.DARK_SKY_API_KEY;
+      //?lat={lat}&lon={lon}&appid={YOUR API KEY}
       var settings = "?extend=hourly&exclude=minutely";
-      var url = endpoint + key + "/" + req.params.lat + "," + req.params.lng + settings;
+      var url = endpoint + "?lat=" + req.params.lat + "&lon=" + req.params.lng + "&appid" + key;
+      console.log(">>>>>>>>>>>>>>>>>>>>" , url);
       req.pipe(request(url)).pipe(res);
     });
 

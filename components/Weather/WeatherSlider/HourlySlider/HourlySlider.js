@@ -31,12 +31,12 @@ const hourlySlider = props => {
   let slider = null;
   let sliderInitialize = null;
 
-  sliderInitialize = props.weather.hourly.data.slice(0, 48).map((item, index) => {
+  sliderInitialize = props.weather.hourly.slice(0, 48).map((item, index) => {
     const backgroundCondition = {
       backgroundImage: `url(/weatherBackgrounds/${item.icon}.jpg)`
     };
     return (
-      <div key={item.time} className={styles.slide}>
+      <div key={index} className={styles.slide}>
         <MicroModal
           modalClassName={styles.modal}
           disableFirstElementFocus={true}
@@ -47,9 +47,9 @@ const hourlySlider = props => {
               target="_blank"
               className={[styles.slide, styles["slide-modal-btn"]].join(" ")}>
               <div className={styles.date}>
-                {format(new Date(), "eee") === format(fromUnixTime(item.time), "eee")
-                  ? format(fromUnixTime(item.time), "h a")
-                  : format(fromUnixTime(item.time), "eee h a")}
+                {format(new Date(), "eee") === format(fromUnixTime(item.dt), "eee")
+                  ? format(fromUnixTime(item.dt), "h a")
+                  : format(fromUnixTime(item.dt), "eee h a")}
               </div>
               <WeatherIcon condition={item.icon} color="white" />
               <div className={styles.temp}>{Math.round(item.temperature)} °</div>
