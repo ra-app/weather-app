@@ -14,7 +14,6 @@ const weather = props => {
   const city = useStoreState(state => state.location.locationCity);
   const region = useStoreState(state => state.location.locationRegion);
   resetIdCounter();
-  console.log('HERE!! WEATHER', weather)
   return (
     <div className={styles.weather}>
       <div className={styles["weather-wrap"]}>
