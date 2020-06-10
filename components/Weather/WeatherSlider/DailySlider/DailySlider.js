@@ -43,7 +43,7 @@ const dailySlider = props => {
     const backgroundCondition = {
       backgroundImage: `url(/weatherBackgrounds/${item.icon}.jpg)`
     };
-    console.log('ITEM', item)
+    // console.log('ITEM', item)
     return (
       <div key={index} className={styles.slide}>
         <MicroModal

@@ -35,6 +35,7 @@ const hourlySlider = props => {
     const backgroundCondition = {
       backgroundImage: `url(/weatherBackgrounds/${item.icon}.jpg)`
     };
+    // console.log('ITEM HOURLY', item)
     return (
       <div key={index} className={styles.slide}>
         <MicroModal
@@ -51,9 +52,9 @@ const hourlySlider = props => {
                   ? format(fromUnixTime(item.dt), "h a")
                   : format(fromUnixTime(item.dt), "eee h a")}
               </div>
-              <WeatherIcon condition={item.icon} color="white" />
-              <div className={styles.temp}>{Math.round(item.temperature)} °</div>
-              {getCondition(item.icon)}
+              <WeatherIcon condition={item.weather[0].icon} color="white" />
+              <div className={styles.temp}>{Math.round(item.temp)} °</div>
+              {getCondition(item.weather[0].icon)}
             </div>
           )}
           children={handleClose => (
