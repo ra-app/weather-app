@@ -28,15 +28,17 @@ const weatherIcon = props => {
       icon = <img src={`/weather/icons/${props.color}/svg/fog.svg`} alt={props.condition} />;
       break;
     case "cloudy":
-    case "04d":
+    // case "04d":
       icon = <img src={`/weather/icons/${props.color}/svg/cloudy.svg`} alt={props.condition} />;
       break;
     case "partly-cloudy-day":
     case "03d":
+    case "04d":
       icon = <img src={`/weather/icons/${props.color}/svg/partlycloudy.svg`} alt={props.condition} />;
       break;
     case "partly-cloudy-night":
     case "03n":
+    case "04n":
       icon = <img src={`/weather/icons/${props.color}/svg/nt_partlycloudy.svg`} alt={props.condition} />;
       break;
     case "hail":

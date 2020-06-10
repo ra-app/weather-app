@@ -4,7 +4,7 @@ const weatherBackground = props => {
   let image = null;
   let divStyle = null;
   if (props.condition) {
-    if ( props.condition == "04d"){
+    if ( props.condition == "04d" || props.condition == "04n"){
       divStyle = {
         backgroundImage: `url('/weatherBackgrounds/cloudy.jpg')`
       };    
