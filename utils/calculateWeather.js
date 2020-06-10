@@ -9,24 +9,32 @@ export function getDirection(angle) {
 export function getCondition(condition) {
   switch (condition) {
     case "clear-day":
+    case "01d":
       return "Clear";
     case "clear-night":
+    case "01n":
       return "Clear";
     case "rain":
+    case "10d":
       return "Rain";
     case "snow":
       return "Snow";
     case "sleet":
+    case "13d":
       return "Sleet";
     case "wind":
       return "Wind";
     case "fog":
+    case "50d":
       return "Fog";
     case "cloudy":
+    case "04d":
       return "Cloudy";
     case "partly-cloudy-day":
+    case "03d":
       return "Partly Cloudy";
     case "partly-cloudy-night":
+    case "03n":
       return "Partly Cloudy";
     case "hail":
       return "Hail";
