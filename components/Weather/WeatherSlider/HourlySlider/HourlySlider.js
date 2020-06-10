@@ -100,7 +100,7 @@ const hourlySlider = props => {
                         <path d="M144 32c-30.88 0-56 25.12-56 56 0 4.416 3.584 8 8 8s8-3.584 8-8c0-22.056 17.944-40 40-40s40 17.944 40 40-17.944 40-40 40H8c-4.416 0-8 3.584-8 8s3.584 8 8 8h136c30.88 0 56-25.12 56-56s-25.12-56-56-56zm136 192H8c-4.416 0-8 3.584-8 8s3.584 8 8 8h272c22.056 0 40 17.944 40 40s-17.944 40-40 40-40-17.944-40-40c0-4.416-3.576-8-8-8s-8 3.584-8 8c0 30.88 25.128 56 56 56s56-25.12 56-56-25.128-56-56-56z" />
                       </svg>
                       <h4 className={styles["modal__item__title"]}>Wind Speed</h4>
-                      {getDirection(item.windBearing)} {Math.round(item.windSpeed)} MPH
+                      {getDirection(item.windBearing)} {Math.round(item.windSpeed)} KMH
                     </div>
                   </div>
                   <div className="col-6 col-xs-6 col-sm-6 col-md-3">
@@ -137,10 +137,10 @@ const hourlySlider = props => {
                     </span>
                   </li>
                   <li>
-                    <strong>Dew Point</strong> <span>{Math.round(item.dewPoint)} °</span>
+                    <strong>Dew Point</strong> <span>{Math.round(item.dew_point)} °</span>
                   </li>
                   <li>
-                    <strong>Wind Gust</strong> <span>{Math.round(item.windGust)} mph</span>
+                    <strong>Wind Gust</strong> <span>{Math.round(item.wind_gust)} kmh</span>
                   </li>
                   {item.precipAccumulation && (
                     <li>

@@ -78,7 +78,7 @@ const currently = props => {
                     Wind Speed
                     <h5>
                       {getDirection(props.currently.wind_deg)}{" "}
-                      {Math.round(props.currently.wind_speed)} MPH
+                      {Math.round(props.currently.wind_speed)} KMH
                     </h5>
                   </div>
                 </li>
@@ -122,11 +122,11 @@ const currently = props => {
                             </li>
                             <li>
                               <strong>Dew Point</strong>{" "}
-                              <span>{Math.round(props.currently.dewPoint)} °</span>
+                              <span>{Math.round(props.currently.dew_point)} °</span>
                             </li>
                             <li>
                               <strong>Wind Gust</strong>{" "}
-                              <span>{Math.round(props.currently.windGust)} mph</span>
+                              <span>{Math.round(props.currently.wind_gust)} kmh</span>
                             </li>
                             <li>
                               <strong>Cloud Cover</strong>{" "}
