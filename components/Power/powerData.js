@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {
@@ -72,13 +72,13 @@ width: calc(50% - 30px)
 `;
 
 const Result = () => {
-  let powerData;
+  const [powerData, setPowerData] = useState(null);
   const getPowerData = async() =>{
     fetch('http://192.168.1.38:5050/livedata', {method: "GET"})
      .then((response) => response.json())
      .then((responseData) =>
      {  
-      window.$powerData = responseData;
+      setPowerData(responseData);
       //console.log(powerData, 'powerData!!!');
      })
      .catch((error) => {
@@ -224,30 +224,27 @@ const Result = () => {
   useEffect(() => {    
     //setDataChart();
     getPowerData()
-    setInterval(()=> getPowerData(), 500)
+    setInterval(()=> getPowerData(), 500);
   });
-
-  
-  console.log('HEREEE WTF ', window.$powerData)
   return (
     <Results>
-      { window.$powerData &&
+      { powerData &&
       <WeatherDetailsWrapper>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-           {convert(window.$powerData.data.power_dc1 + window.$powerData.data.power_dc2).from('W').to('kW').toFixed(3)} kW
+           {convert(powerData.data.power_dc1 + powerData.data.power_dc2).from('W').to('kW').toFixed(3)} kW
           </SmallLabel>
           <Text align="center">PV Power</Text>
         </WeatherDetail>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-          {convert(window.$powerData.data.home_own_consumption_from_battery + window.$powerData.data.home_own_consumption_from_grid + window.$powerData.data.home_own_consumption_from_pv).from('W').to('kW').toFixed(3)} kW
+          {convert(powerData.data.home_own_consumption_from_battery + powerData.data.home_own_consumption_from_grid + powerData.data.home_own_consumption_from_pv).from('W').to('kW').toFixed(3)} kW
           </SmallLabel>
           <Text align="center">Consumption</Text>
         </WeatherDetail>
         <WeatherDetail>
           <SmallLabel align="center" weight="400">
-          {window.$powerData.data.act_state_of_charge}%
+          {powerData.data.act_state_of_charge}%
           </SmallLabel>
           <Text align="center">Battery</Text>
         </WeatherDetail>
